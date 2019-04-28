@@ -18,12 +18,28 @@ class Weather extends React.Component {
           </p>
         )}
 
+        {this.props.lon && this.props.lat && (
+          <p className="weather__key">
+            Longitude and latitude:
+            <span className="weather__value">
+              {this.props.lon}, {this.props.lat}
+            </span>
+          </p>
+        )}
+
         {this.props.temperature && (
           <p className="weather__key">
             Temperature:
             <span className="weather__value">
               {`${this.props.temperature} °F`}
             </span>
+          </p>
+        )}
+
+        {this.props.clouds && (
+          <p className="weather__key">
+            Cloudiness:
+            <span className="weather__value">{`${this.props.clouds} %`}</span>
           </p>
         )}
 

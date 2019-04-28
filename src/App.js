@@ -43,6 +43,9 @@ class App extends React.Component {
     if (city && country) {
       this.setState({
         temperature: response.main.temp,
+        clouds: response.clouds.all,
+        lon: response.coord.lon,
+        lat: response.coord.lat,
         city: response.name,
         country: response.sys.country,
         lat_lng: response.coord,
@@ -105,7 +108,10 @@ class App extends React.Component {
       error,
       iconId,
       isCloudy,
-      time
+      clouds,
+      time,
+      lat,
+      lon
     } = this.state;
 
     return (
@@ -132,6 +138,9 @@ class App extends React.Component {
                     pressure={pressure}
                     error={error}
                     id={iconId}
+                    clouds={clouds}
+                    lat={lat}
+                    lon={lon}
                   />
                 </div>
               </div>
